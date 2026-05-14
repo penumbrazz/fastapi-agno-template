@@ -1,20 +1,22 @@
 # AGENTS.md
 
-FastAPI + React 全栈应用模板，基于 [fastapi/full-stack-fastapi-template](https://github.com/fastapi/full-stack-fastapi-template)。
+FastAPI Agno Template — FastAPI + React + Agno + CopilotKit 全栈 AI Agent 应用模板。
 
 ---
 
 ## 📋 项目概览
 
-**双模块架构：**
-- **Backend**（FastAPI + SQLModel + PostgreSQL）：RESTful API、JWT 认证、Alembic 迁移
-- **Frontend**（React 19 + TypeScript + TanStack Router + shadcn/ui）：SPA Web UI
+**多模块架构：**
+- **Backend**（FastAPI + SQLModel + Agno + PostgreSQL）：RESTful API、JWT 认证、AI Agent 服务、知识库
+- **Frontend**（React 19 + TypeScript + CopilotKit + shadcn/ui）：SPA Web UI + AI 交互界面
 
 **技术栈：**
 
 | 层 | 技术 |
 |---|------|
 | 后端框架 | FastAPI、SQLModel、Pydantic v2、Alembic |
+| AI Agent | Agno（AI Agent 框架）、CopilotKit |
+| 知识库 | 向量数据库、RAG 检索增强生成 |
 | 数据库 | PostgreSQL 18 |
 | 认证 | JWT（HS256）、Argon2 密码哈希 |
 | 前端框架 | React 19、TypeScript 5.9、Vite 7 |

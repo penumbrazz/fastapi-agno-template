@@ -12,7 +12,7 @@ But you have to configure a couple things first. 🤓
 
 * Have a remote server ready and available.
 * Configure the DNS records of your domain to point to the IP of the server you just created.
-* Configure a wildcard subdomain for your domain, so that you can have multiple subdomains for different services, e.g. `*.fastapi-project.example.com`. This will be useful for accessing different components, like `dashboard.fastapi-project.example.com`, `api.fastapi-project.example.com`, `traefik.fastapi-project.example.com`, `adminer.fastapi-project.example.com`, etc. And also for `staging`, like `dashboard.staging.fastapi-project.example.com`, `adminer.staging.fastapi-project.example.com`, etc.
+* Configure a wildcard subdomain for your domain, so that you can have multiple subdomains for different services, e.g. `*.fastapi-agno-template.example.com`. This will be useful for accessing different components, like `dashboard.fastapi-agno-template.example.com`, `api.fastapi-agno-template.example.com`, `traefik.fastapi-agno-template.example.com`, `adminer.fastapi-agno-template.example.com`, etc. And also for `staging`, like `dashboard.staging.fastapi-agno-template.example.com`, `adminer.staging.fastapi-agno-template.example.com`, etc.
 * Install and configure [Docker](https://docs.docker.com/engine/install/) on the remote server (Docker Engine, not Docker Desktop).
 
 ## Public Traefik
@@ -78,7 +78,7 @@ echo $HASHED_PASSWORD
 * Create an environment variable with the domain name for your server, e.g.:
 
 ```bash
-export DOMAIN=fastapi-project.example.com
+export DOMAIN=fastapi-agno-template.example.com
 ```
 
 * Create an environment variable with the email for Let's Encrypt, e.g.:
@@ -144,7 +144,7 @@ export ENVIRONMENT=production
 Set the `DOMAIN`, by default `localhost` (for development), but when deploying you would use your own domain, for example:
 
 ```bash
-export DOMAIN=fastapi-project.example.com
+export DOMAIN=fastapi-agno-template.example.com
 ```
 
 Set the `POSTGRES_PASSWORD` to something different than `changethis`:
@@ -176,7 +176,7 @@ export BACKEND_CORS_ORIGINS="https://dashboard.${DOMAIN?Variable not set},https:
 You can set several other environment variables:
 
 * `PROJECT_NAME`: The name of the project, used in the API for the docs and emails.
-* `STACK_NAME`: The name of the stack used for Docker Compose labels and project name, this should be different for `staging`, `production`, etc. You could use the same domain replacing dots with dashes, e.g. `fastapi-project-example-com` and `staging-fastapi-project-example-com`.
+* `STACK_NAME`: The name of the stack used for Docker Compose labels and project name, this should be different for `staging`, `production`, etc. You could use the same domain replacing dots with dashes, e.g. `fastapi-agno-template-example-com` and `staging-fastapi-agno-template-example-com`.
 * `BACKEND_CORS_ORIGINS`: A list of allowed CORS origins separated by commas.
 * `FIRST_SUPERUSER`: The email of the first superuser, this superuser will be the one that can create new users.
 * `SMTP_HOST`: The SMTP server host to send emails, this would come from your email provider (E.g. Mailgun, Sparkpost, Sendgrid, etc).
@@ -193,7 +193,7 @@ You can set several other environment variables:
 
 There are some environment variables only used by GitHub Actions that you can configure:
 
-* `LATEST_CHANGES`: Used by the GitHub Action [latest-changes](https://github.com/tiangolo/latest-changes) to automatically add release notes based on the PRs merged. It's a personal access token, read the docs for details.
+* `LATEST_CHANGES`: Used by a GitHub Action to automatically add release notes based on the PRs merged. It's a personal access token, read the GitHub Actions docs for details.
 * `SMOKESHOW_AUTH_KEY`: Used to handle and publish the code coverage using [Smokeshow](https://github.com/samuelcolvin/smokeshow), follow their instructions to create a (free) Smokeshow key.
 
 ### Deploy with Docker Compose
@@ -317,28 +317,28 @@ If you need to add extra environments you could use those as a starting point.
 
 ## URLs
 
-Replace `fastapi-project.example.com` with your domain.
+Replace `fastapi-agno-template.example.com` with your domain.
 
 ### Main Traefik Dashboard
 
-Traefik UI: `https://traefik.fastapi-project.example.com`
+Traefik UI: `https://traefik.fastapi-agno-template.example.com`
 
 ### Production
 
-Frontend: `https://dashboard.fastapi-project.example.com`
+Frontend: `https://dashboard.fastapi-agno-template.example.com`
 
-Backend API docs: `https://api.fastapi-project.example.com/docs`
+Backend API docs: `https://api.fastapi-agno-template.example.com/docs`
 
-Backend API base URL: `https://api.fastapi-project.example.com`
+Backend API base URL: `https://api.fastapi-agno-template.example.com`
 
-Adminer: `https://adminer.fastapi-project.example.com`
+Adminer: `https://adminer.fastapi-agno-template.example.com`
 
 ### Staging
 
-Frontend: `https://dashboard.staging.fastapi-project.example.com`
+Frontend: `https://dashboard.staging.fastapi-agno-template.example.com`
 
-Backend API docs: `https://api.staging.fastapi-project.example.com/docs`
+Backend API docs: `https://api.staging.fastapi-agno-template.example.com/docs`
 
-Backend API base URL: `https://api.staging.fastapi-project.example.com`
+Backend API base URL: `https://api.staging.fastapi-agno-template.example.com`
 
-Adminer: `https://adminer.staging.fastapi-project.example.com`
+Adminer: `https://adminer.staging.fastapi-agno-template.example.com`

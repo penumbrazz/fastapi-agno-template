@@ -79,7 +79,7 @@ cd backend
 fastapi dev app/main.py
 ```
 
-## 在 `localhost.tiangolo.com` 中使用 Docker Compose
+## 在 `localhost` 中使用 Docker Compose
 
 当你启动 Docker Compose 技术栈时，默认使用 `localhost`，每个服务使用不同的端口（后端、前端、adminer 等）。
 
@@ -90,14 +90,14 @@ fastapi dev app/main.py
 如果你想在本地测试一切是否正常，你可以编辑本地 `.env` 文件，将：
 
 ```dotenv
-DOMAIN=localhost.tiangolo.com
+DOMAIN=localhost
 ```
 
 这将由 Docker Compose 文件用于配置服务的基础域名。
 
-Traefik 将使用它将 `api.localhost.tiangolo.com` 的流量传输到后端，将 `dashboard.localhost.tiangolo.com` 的流量传输到前端。
+Traefik 将使用它将 `api.localhost` 的流量传输到后端，将 `dashboard.localhost` 的流量传输到前端。
 
-域名 `localhost.tiangolo.com` 是一个特殊的域名，它（及其所有子域名）被配置为指向 `127.0.0.1`。这样你可以将其用于本地开发。
+域名 `localhost` 是一个特殊的域名，它（及其所有子域名）被配置为指向 `127.0.0.1`。这样你可以将其用于本地开发。
 
 更新后，再次运行：
 
@@ -105,7 +105,7 @@ Traefik 将使用它将 `api.localhost.tiangolo.com` 的流量传输到后端，
 docker compose watch
 ```
 
-在部署时，例如在生产环境中，主要的 Traefik 配置在 Docker Compose 文件之外。对于本地开发，`compose.override.yml` 中包含了一个 Traefik，只是为了让你测试域名是否按预期工作，例如使用 `api.localhost.tiangolo.com` 和 `dashboard.localhost.tiangolo.com`。
+在部署时，例如在生产环境中，主要的 Traefik 配置在 Docker Compose 文件之外。对于本地开发，`compose.override.yml` 中包含了一个 Traefik，只是为了让你测试域名是否按预期工作，例如使用 `api.localhost` 和 `dashboard.localhost`。
 
 ## Docker Compose 文件和环境变量
 
@@ -202,20 +202,20 @@ Traefik UI：<http://localhost:8090>
 
 MailCatcher：<http://localhost:1080>
 
-### 配置了 `localhost.tiangolo.com` 的开发 URL
+### 配置了 `localhost` 的开发 URL
 
 开发 URL，用于本地开发。
 
-前端：<http://dashboard.localhost.tiangolo.com>
+前端：<http://dashboard.localhost>
 
-后端：<http://api.localhost.tiangolo.com>
+后端：<http://api.localhost>
 
-自动交互式文档 (Swagger UI)：<http://api.localhost.tiangolo.com/docs>
+自动交互式文档 (Swagger UI)：<http://api.localhost/docs>
 
-自动替代文档 (ReDoc)：<http://api.localhost.tiangolo.com/redoc>
+自动替代文档 (ReDoc)：<http://api.localhost/redoc>
 
-Adminer：<http://localhost.tiangolo.com:8080>
+Adminer：<http://localhost:8080>
 
-Traefik UI：<http://localhost.tiangolo.com:8090>
+Traefik UI：<http://localhost:8090>
 
-MailCatcher：<http://localhost.tiangolo.com:1080>
+MailCatcher：<http://localhost:1080>

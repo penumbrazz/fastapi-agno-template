@@ -12,7 +12,7 @@
 
 * 准备好一台远程服务器。
 * 配置域名的 DNS 记录，指向你刚创建的服务器 IP。
-* 为你的域名配置通配符子域名，这样你可以为不同的服务拥有多个子域名，例如 `*.fastapi-project.example.com`。这对于访问不同组件很有用，比如 `dashboard.fastapi-project.example.com`、`api.fastapi-project.example.com`、`traefik.fastapi-project.example.com`、`adminer.fastapi-project.example.com` 等。也适用于 `staging` 环境，如 `dashboard.staging.fastapi-project.example.com`、`adminer.staging.fastapi-project.example.com` 等。
+* 为你的域名配置通配符子域名，这样你可以为不同的服务拥有多个子域名，例如 `*.fastapi-agno-template.example.com`。这对于访问不同组件很有用，比如 `dashboard.fastapi-agno-template.example.com`、`api.fastapi-agno-template.example.com`、`traefik.fastapi-agno-template.example.com`、`adminer.fastapi-agno-template.example.com` 等。也适用于 `staging` 环境，如 `dashboard.staging.fastapi-agno-template.example.com`、`adminer.staging.fastapi-agno-template.example.com` 等。
 * 在远程服务器上安装并配置 [Docker](https://docs.docker.com/engine/install/)（Docker Engine，不是 Docker Desktop）。
 
 ## 公共 Traefik
@@ -78,7 +78,7 @@ echo $HASHED_PASSWORD
 * 创建服务器域名的环境变量，例如：
 
 ```bash
-export DOMAIN=fastapi-project.example.com
+export DOMAIN=fastapi-agno-template.example.com
 ```
 
 * 创建 Let's Encrypt 邮箱的环境变量，例如：
@@ -144,7 +144,7 @@ export ENVIRONMENT=production
 设置 `DOMAIN`，默认为 `localhost`（用于开发），但在部署时你应该使用你自己的域名，例如：
 
 ```bash
-export DOMAIN=fastapi-project.example.com
+export DOMAIN=fastapi-agno-template.example.com
 ```
 
 将 `POSTGRES_PASSWORD` 设置为不同于 `changethis` 的值：
@@ -176,7 +176,7 @@ export BACKEND_CORS_ORIGINS="https://dashboard.${DOMAIN?Variable not set},https:
 你还可以设置其他几个环境变量：
 
 * `PROJECT_NAME`：项目名称，用于 API 文档和邮件。
-* `STACK_NAME`：用于 Docker Compose 标签和项目名称的堆栈名称，`staging`、`production` 等应该不同。你可以使用相同的域名，将句点替换为破折号，例如 `fastapi-project-example-com` 和 `staging-fastapi-project-example-com`。
+* `STACK_NAME`：用于 Docker Compose 标签和项目名称的堆栈名称，`staging`、`production` 等应该不同。你可以使用相同的域名，将句点替换为破折号，例如 `fastapi-agno-template-example-com` 和 `staging-fastapi-agno-template-example-com`。
 * `BACKEND_CORS_ORIGINS`：以逗号分隔的允许的 CORS 源列表。
 * `FIRST_SUPERUSER`：第一个超级用户的邮箱，此超级用户将是可以创建新用户的用户。
 * `SMTP_HOST`：发送邮件的 SMTP 服务器主机，这来自你的邮件服务提供商（例如 Mailgun、Sparkpost、Sendgrid 等）。
@@ -193,7 +193,7 @@ export BACKEND_CORS_ORIGINS="https://dashboard.${DOMAIN?Variable not set},https:
 
 有一些仅由 GitHub Actions 使用的环境变量你可以配置：
 
-* `LATEST_CHANGES`：由 GitHub Action [latest-changes](https://github.com/tiangolo/latest-changes) 使用，用于根据合并的 PR 自动添加发布说明。它是一个个人访问令牌，阅读文档了解详情。
+* `LATEST_CHANGES`：由 GitHub Action `latest-changes` 使用，用于根据合并的 PR 自动添加发布说明。它是一个个人访问令牌，阅读文档了解详情。
 * `SMOKESHOW_AUTH_KEY`：用于使用 [Smokeshow](https://github.com/samuelcolvin/smokeshow) 处理和发布代码覆盖率，按照他们的说明创建一个（免费的）Smokeshow 密钥。
 
 ### 使用 Docker Compose 部署
@@ -317,28 +317,28 @@ cd /home/github/actions-runner
 
 ## URL
 
-将 `fastapi-project.example.com` 替换为你的域名。
+将 `fastapi-agno-template.example.com` 替换为你的域名。
 
 ### 主 Traefik 仪表盘
 
-Traefik UI：`https://traefik.fastapi-project.example.com`
+Traefik UI：`https://traefik.fastapi-agno-template.example.com`
 
 ### 生产环境
 
-前端：`https://dashboard.fastapi-project.example.com`
+前端：`https://dashboard.fastapi-agno-template.example.com`
 
-后端 API 文档：`https://api.fastapi-project.example.com/docs`
+后端 API 文档：`https://api.fastapi-agno-template.example.com/docs`
 
-后端 API 基础 URL：`https://api.fastapi-project.example.com`
+后端 API 基础 URL：`https://api.fastapi-agno-template.example.com`
 
-Adminer：`https://adminer.fastapi-project.example.com`
+Adminer：`https://adminer.fastapi-agno-template.example.com`
 
 ### 预发布环境
 
-前端：`https://dashboard.staging.fastapi-project.example.com`
+前端：`https://dashboard.staging.fastapi-agno-template.example.com`
 
-后端 API 文档：`https://api.staging.fastapi-project.example.com/docs`
+后端 API 文档：`https://api.staging.fastapi-agno-template.example.com/docs`
 
-后端 API 基础 URL：`https://api.staging.fastapi-project.example.com`
+后端 API 基础 URL：`https://api.staging.fastapi-agno-template.example.com`
 
-Adminer：`https://adminer.staging.fastapi-project.example.com`
+Adminer：`https://adminer.staging.fastapi-agno-template.example.com`
